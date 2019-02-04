@@ -1,5 +1,11 @@
 import React from "react";
-import { Card, Typography, CardContent } from "@material-ui/core/";
+import {
+  Card,
+  Typography,
+  CardContent,
+  CardHeader,
+  CardMedia
+} from "@material-ui/core/";
 import classes from "./Card.module.css";
 
 const HolidayCard = props => {
@@ -7,24 +13,17 @@ const HolidayCard = props => {
 
   return (
     <div>
-      <Card
-        style={{
-          width: "500px",
-          height: "300px",
-          margin: "0 auto",
-          marginBottom: "30px",
-          alignItems: "center",
-          backgroundImage: "url(background)"
-        }}
-      >
+      <Card className={classes.Card}>
         <CardContent>
-          <Typography className={classes.hotelNameStars}>
-            {props.hotelName}
-          </Typography>
+          <CardHeader title={props.hotelName} subheader={props.location} />
 
-          <Typography className={classes.hotelNameStars}>
-            {props.location}
-          </Typography>
+          <CardMedia
+            className={classes.media}
+            image={require("../../assests/image_01.png")}
+            title="Paella dish"
+          />
+
+          <img src={background} alt="picture of resort" />
 
           <Typography className={classes.hotelNameStars}>
             {props.stars}
@@ -35,16 +34,11 @@ const HolidayCard = props => {
           </Typography>
 
           <Typography className={classes.hotelNameStars}>
-            {props.image}
-          </Typography>
-
-          <Typography className={classes.hotelNameStars}>
             {props.dateInfo}
           </Typography>
-
-          <Typography className={classes.hotelNameStars}>
-            {props.description}
-          </Typography>
+          <CardContent>
+            <Typography paragraph>{props.description}</Typography>
+          </CardContent>
         </CardContent>
       </Card>
     </div>

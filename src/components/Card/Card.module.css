@@ -44,6 +44,15 @@
   text-align: left;
 }
 
+img {
+  width: 50%;
+  height: 100px;
+}
+
 .Card {
-  width: 275;  height: 275;
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  align-items: center;
 }
