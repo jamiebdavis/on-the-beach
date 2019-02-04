@@ -3,6 +3,8 @@ import { Card, Typography, CardContent } from "@material-ui/core/";
 import classes from "./Card.module.css";
 
 const HolidayCard = props => {
+  let background = require("../../assests/image_01.png");
+
   return (
     <div>
       <Card
@@ -11,7 +13,8 @@ const HolidayCard = props => {
           height: "300px",
           margin: "0 auto",
           marginBottom: "30px",
-          alignItems: "center"
+          alignItems: "center",
+          backgroundImage: "url(background)"
         }}
       >
         <CardContent>
