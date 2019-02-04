@@ -11,12 +11,12 @@
 .topBanner {
   width: 100%;
   height: 15%;
-  background-color: pink;
+  background-color: #ffea00;
 }
 
 .topLeftBanner {
   height: 100%;
-  background-color: purple;
+  background-color: #c9d3ff;
   width: 65%;
   align-items: flex-end;
 }
@@ -24,5 +24,26 @@
 .bottomBanner {
   width: 100%;
   height: 15%;
-  background-color: hotpink;
+  background-color: #0ca4ff;
+}
+
+.hotelNameStars {
+  color: #304187;
+  font-weight: bold;
+  text-align: left;
+}
+
+.location {
+  color: #304187;
+  text-align: left;
+  font-size: smaller;
+}
+
+.dateInfo {
+  color: white;
+  text-align: left;
+}
+
+.Card {
+  width: 275;  height: 275;
 }

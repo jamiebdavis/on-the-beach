@@ -1,16 +1,49 @@
 import React from "react";
+import { Card, Typography, CardContent } from "@material-ui/core/";
 import classes from "./Card.module.css";
+import { withStyles } from "@material-ui/core/styles";
 
-const Card = props => {
+const HolidayCard = props => {
   return (
-    <div class={classes.container}>
-      <div class={classes.topBanner}>
-        <div class={classes.topLeftBanner} />
-      </div>
+    <Card
+      style={{
+        width: "500px",
+        height: "300px",
+        margin: "0 auto",
+        marginBottom: "30px",
+        alignItems: "center"
+      }}
+    >
+      <CardContent>
+        <Typography className={classes.hotelNameStars}>
+          {props.hotelName}
+        </Typography>
 
-      <div class={classes.bottomBanner} />
-    </div>
+        <Typography className={classes.hotelNameStars}>
+          {props.location}
+        </Typography>
+
+        <Typography className={classes.hotelNameStars}>
+          {props.stars}
+        </Typography>
+
+        <Typography className={classes.hotelNameStars}>
+          {props.price}
+        </Typography>
+
+        <Typography className={classes.hotelNameStars}>
+          {props.image}
+        </Typography>
+
+        <Typography className={classes.hotelNameStars}>
+          {props.dateInfo}
+        </Typography>
+
+        <Typography className={classes.hotelNameStars}>
+          {props.description}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
-
-export default Card;
+export default HolidayCard;
