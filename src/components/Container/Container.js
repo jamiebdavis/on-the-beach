@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import HolidayCard from "../Card/Card";
+import PriceButton from "../Buttons/PriceButton";
+import StarButton from "../Buttons/StarButton";
+import AlphaButton from "../Buttons/AlphaButton";
 
 class Container extends Component {
   state = {
@@ -39,6 +42,42 @@ class Container extends Component {
     ]
   };
 
+  componentDidMount() {
+    this.handlePriceSort();
+  }
+
+  handleStarSort = () => {
+    let destinations = this.state.destinations;
+    let sortedDestinations = destinations.sort((a, b) => {
+      return a.stars - b.stars;
+    });
+    this.setState({ destinations: sortedDestinations });
+  };
+
+  handleAlphaSort = () => {
+    let destinations = this.state.destinations;
+    let sortedDestinations = destinations.sort((a, b) => {
+      let nameA = a.hotelName.toUpperCase();
+      let nameB = b.hotelName.toUpperCase();
+
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameB < nameA) {
+        return 1;
+      }
+    });
+    this.setState({ destinations: sortedDestinations });
+  };
+
+  handlePriceSort = () => {
+    let destinations = this.state.destinations;
+    let sortedDestinations = destinations.sort((a, b) => {
+      return a.price - b.price;
+    });
+    this.setState({ destinations: sortedDestinations });
+  };
+
   render() {
     let destinations = this.state.destinations.map(dest => {
       return (
@@ -55,7 +94,15 @@ class Container extends Component {
       );
     });
 
-    return <div>{destinations}</div>;
+    return (
+      <div>
+        <AlphaButton clicked={this.handleAlphaSort} />
+        <PriceButton clicked={this.handlePriceSort} />
+        <StarButton clicked={this.handleStarSort} />
+        <br />
+        {destinations}
+      </div>
+    );
   }
 }
 
